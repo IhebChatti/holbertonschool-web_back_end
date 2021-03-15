@@ -4,14 +4,13 @@
 import math
 
 
-def floor(n: float) -> float:
+def floor(n: float) -> int:
     """[function that compûtes the floor of a float]
 
     Args:
         n (float): [float to be computed]
 
     Returns:
-        float: [result]
+        int: [result]
     """
     return math.floor(n)
-    
