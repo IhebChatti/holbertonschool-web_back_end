@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """[method to add 2 floats]
 """
+
+
 def add(a: float, b: float) -> float:
     """[add 2 floats]
 
