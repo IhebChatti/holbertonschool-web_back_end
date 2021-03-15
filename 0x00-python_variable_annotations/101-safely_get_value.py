@@ -3,20 +3,21 @@
 """
 from typing import Union, Mapping, Any, TypeVar
 
+
 T = TypeVar('T')
 
 
 def safely_get_value(dct: Mapping, key: Any,
-                     default: Union[T, None]=None) -> Union[Any, T]:
-    """[safely_get_value function]
+                     default: Union[T, None] = None) -> Union[Any, T]:
+    """[safely get value]
 
     Args:
-        dct (Mapping): [typing mapping]
+        dct (Mapping): [mapping]
         key (Any): [any type]
         default (Union[T, None], optional): [default]. Defaults to None.
 
     Returns:
-        Union[Any, T]: [union of any type and typevar T]
+        Union[Any, T]: [union of any and typevar t]
     """
     if key in dct:
         return dct[key]
