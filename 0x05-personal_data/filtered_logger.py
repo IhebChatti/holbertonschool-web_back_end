@@ -95,3 +95,10 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
                                    password=db_pw,
                                    host=db_host,
                                    database=db_name)
+
+
+def main():
+    pass
+
+if __name__ == "__main__":
+    main()
