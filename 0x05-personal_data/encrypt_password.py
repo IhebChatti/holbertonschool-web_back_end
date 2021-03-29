@@ -5,7 +5,7 @@
 import bcrypt
 
 
-def hash_password(password) -> bytes:
+def hash_password(password: str) -> bytes:
     """[hash_password]
 
     Args:
