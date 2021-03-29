@@ -47,7 +47,7 @@ def get_logger() -> logging.Logger:
     Returns:
         logging.Logger: [logging Logger]
     """
-    return logging.Logger("user_data")
+    return logging.getLogger("user_data")
 
 
 def filter_datum(fields: List[str],
