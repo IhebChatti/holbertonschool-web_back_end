@@ -5,6 +5,8 @@
 from typing import List
 import re
 import logging
+import mysql.connector
+import os
 
 PII_FIELDS = ('name', 'email', 'phone', 'ssn', 'password')
 
@@ -76,3 +78,20 @@ def filter_datum(fields: List[str],
                          '{}={}{}'.format(field, redaction, separator),
                          message)
     return message
+
+
+def get_db() -> mysql.connector.connection.MySQLConnection:
+    """[get_db]
+
+    Returns:
+        mysql.connector.connection.MySQLConnection: [mysql connection]
+    """
+    db_user = os.environ.get('PERSONAL_DATA_DB_USERNAME', None)
+    db_pw = os.environ.get('PERSONAL_DATA_DB_PASSWORD', None)
+    db_host = os.environ.get('PERSONAL_DATA_DB_HOST', None)
+    db_name = os.environ.get('PERSONAL_DATA_DB_NAME', None)
+
+    return mysql.connector.connect(user=db_user,
+                                   password=db_pw,
+                                   host=db_host,
+                                   database=db_name)
