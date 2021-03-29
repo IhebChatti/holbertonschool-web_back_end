@@ -33,7 +33,11 @@ class RedactingFormatter(logging.Formatter):
         Returns:
             str: [formatted str]
         """
-        return filter_datum(self.fields, self.REDACTION, super().format(record), self.SEPARATOR)
+        return filter_datum(self.fields,
+                            self.REDACTION,
+                            super().format(record),
+                            self.SEPARATOR)
+
 
 def filter_datum(fields: List[str],
                  redaction: str,
