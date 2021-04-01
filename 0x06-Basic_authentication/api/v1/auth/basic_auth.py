@@ -76,7 +76,10 @@ class BasicAuth(Auth):
         """
         if not user_email or not user_pwd:
             return None
-        users = User.search({'email': user_email})
+        try:
+            users = User.search({'email': user_email})
+        except Exception:
+            pass
         if not users:
             return None
         for user in users:
