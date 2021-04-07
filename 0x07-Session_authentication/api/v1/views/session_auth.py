@@ -30,4 +30,3 @@ def login():
         return response
     else:
         return jsonify({"error": "wrong password"}), 401
-    
