@@ -13,9 +13,6 @@ class SessionAuth(Auth):
 
     def create_session(self, user_id: str = None) -> str:
         """[create_session]Check 1
-Check 2
-Check 3
-C
 
         Args:
             user_id (str, optional): [user id]. Defaults to None.
