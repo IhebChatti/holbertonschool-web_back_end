@@ -35,3 +35,17 @@ class Auth:
         """[current_user]
         """
         return None
+
+    def session_cookie(self, request=None):
+        """[session_cookie]
+
+        Args:
+            request ([type], optional): [request module]. Defaults to None.
+
+        Returns:
+            [type]: [cookie by session name]
+        """
+        if not request:
+            return None
+        session_name = getenv("SESSION_NAME")
+        return request.cookies.get(session_name, None)
