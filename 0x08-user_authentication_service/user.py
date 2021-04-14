@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""[summary]
+"""[User class]
 """
 
 from sqlalchemy import Column, Integer, String
@@ -8,6 +8,8 @@ Base = declarative_base()
 
 
 class User(Base):
+    """[User]
+    """
     __tablename__ = 'users'
 
     id = Column(Integer, primary_key=True)
