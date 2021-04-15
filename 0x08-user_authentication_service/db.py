@@ -42,7 +42,8 @@ class DB:
         return user
 
     def find_user_by(self, **kwargs) -> User:
-        """ Returns first User in DB matching kwargs """
+        """find_user_by
+        """
         permitted_fields = ['id', 'email', 'hashed_password',
                     'session_id', 'reset_token']
         if not kwargs:
