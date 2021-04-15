@@ -41,21 +41,15 @@ class DB:
         self._session.commit()
         return user
 
-    def find_user_by(self, **kwargs: dict) -> User:
-        """[find_user_by]
-        """
-        permitted_fields = ['id',
-                            'email',
-                            'hashed_password',
-                            'session_id',
-                            'reset_token']
+    def find_user_by(self, **kwargs) -> User:
+        """ Returns first User in DB matching kwargs """
+        permitted_fields = ['id', 'email', 'hashed_password',
+                    'session_id', 'reset_token']
         if not kwargs:
             raise InvalidRequestError
-        for k in kwargs:
-            if k not in permitted_fields:
-                raise InvalidRequestError
+        if not all(field in permitted_fields for field in kwargs):
+            raise InvalidRequestError
         result = self._session.query(User).filter_by(**kwargs).one()
-        if result:
-            return result
-        else:
+        if not result:
             raise NoResultFound
+        return result
