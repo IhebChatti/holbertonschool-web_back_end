@@ -45,7 +45,7 @@ class DB:
         """find_user_by
         """
         permitted_fields = ['id', 'email', 'hashed_password',
-                    'session_id', 'reset_token']
+                            'session_id', 'reset_token']
         if not kwargs:
             raise InvalidRequestError
         if not all(field in permitted_fields for field in kwargs):
