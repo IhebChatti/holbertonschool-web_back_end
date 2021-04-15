@@ -51,10 +51,17 @@ class DB:
         Returns:
             User: [user instance]
         """
+        permitted_fields = ['id',
+                            'email',
+                            'hashed_password',
+                            'session_id',
+                            'reset_token']
         if not kwargs:
             raise InvalidRequestError
-        search = self._session.query(User).filter_by(**kwargs).first()
-        if search:
-            return search
-        else:
+        for k in kwargs:
+            if k not in permitted_fields:
+                raise InvalidRequestError
+        try:
+            return self._session.query(User).filter_by(**kwargs).one()
+        except Exception:
             raise NoResultFound
