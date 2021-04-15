@@ -43,13 +43,6 @@ class DB:
 
     def find_user_by(self, **kwargs: dict) -> User:
         """[find_user_by]
-
-        Raises:
-            InvalidRequestError: [when wrong request]
-            NoResultFound: [when no result found]
-
-        Returns:
-            User: [user instance]
         """
         permitted_fields = ['id',
                             'email',
@@ -61,7 +54,8 @@ class DB:
         for k in kwargs:
             if k not in permitted_fields:
                 raise InvalidRequestError
-        try:
-            return self._session.query(User).filter_by(**kwargs).one()
-        except Exception:
+        result = self._session.query(User).filter_by(**kwargs).one()
+        if result:
+            return result
+        else:
             raise NoResultFound
