@@ -11,6 +11,9 @@ from sqlalchemy.orm.session import Session
 from user import User
 from user import Base
 
+PERMITTED_FIELDS = ['id', 'email', 'hashed_password',
+                    'session_id', 'reset_token']
+
 
 class DB:
     """DB class
@@ -44,13 +47,22 @@ class DB:
     def find_user_by(self, **kwargs) -> User:
         """find_user_by
         """
-        permitted_fields = ['id', 'email', 'hashed_password',
-                            'session_id', 'reset_token']
+
         if not kwargs:
             raise InvalidRequestError
-        if not all(field in permitted_fields for field in kwargs):
+        if not all(field in PERMITTED_FIELDS for field in kwargs):
             raise InvalidRequestError
         result = self._session.query(User).filter_by(**kwargs).one()
         if not result:
             raise NoResultFound
         return result
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """[update_user]
+        """
+        user = self.find_user_by(id=user_id)
+        for key, value in kwargs.items():
+            if key not in PERMITTED_FIELDS:
+                raise ValueError
+            setattr(user, key, value)
+        self._session.commit()
