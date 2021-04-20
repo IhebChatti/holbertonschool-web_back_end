@@ -2,7 +2,7 @@
 """[test_client]
 """
 from client import GithubOrgClient
-from unittest.mock import patch, PropertyMock
+from unittest.mock import patch
 from parameterized import parameterized
 import unittest
 
