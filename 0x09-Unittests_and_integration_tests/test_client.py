@@ -2,9 +2,11 @@
 """[test_client]
 """
 from client import GithubOrgClient
-from unittest.mock import patch, PropertyMock
-from parameterized import parameterized
+from unittest.mock import patch, Mock, PropertyMock
+from parameterized import parameterized, parameterized_class
 import unittest
+from fixtures import TEST_PAYLOAD
+from urllib.error import HTTPError
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -61,3 +63,36 @@ class TestGithubOrgClient(unittest.TestCase):
         client = GithubOrgClient("holberton")
         response = client.has_license(repo, key)
         self.assertEqual(expected, response)
+
+
+
+@parameterized_class(
+    ("org_payload", "repos_payload", "expected_repos", "apache2_repos"),
+    TEST_PAYLOAD
+)
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """[TestIntegrationGithubOrgClient]
+    """
+    @classmethod
+    def setUpClass(cls):
+        """[setUpClass]
+        """
+        cls.get_patcher = patch('requests.get',HTTPError)
+
+    @classmethod
+    def tearDownClass(cls):
+        """[tearDownClass]
+        """
+        cls.get_patcher.stop()
+
+    def test_public_repository_without_license(self):
+        """[test_public_repository_without_license]
+        """
+        class_test = GithubOrgClient("holbertonschool")
+        assert True
+
+    def test_public_repository_with_license(self):
+        """[test_public_repository_with_license]
+        """
+        class_test = GithubOrgClient("holbertonschool")
+        assert True
