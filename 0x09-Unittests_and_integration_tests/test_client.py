@@ -65,7 +65,6 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(expected, response)
 
 
-
 @parameterized_class(
     ("org_payload", "repos_payload", "expected_repos", "apache2_repos"),
     TEST_PAYLOAD
@@ -77,7 +76,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
     def setUpClass(cls):
         """[setUpClass]
         """
-        cls.get_patcher = patch('requests.get',HTTPError)
+        cls.get_patcher = patch('requests.get', HTTPError)
 
     @classmethod
     def tearDownClass(cls):
