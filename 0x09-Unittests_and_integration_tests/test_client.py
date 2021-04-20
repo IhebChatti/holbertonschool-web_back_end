@@ -8,6 +8,8 @@ import unittest
 
 
 class TestGithubOrgClient(unittest.TestCase):
+    """[TestGithubOrgClient]
+    """
     @parameterized.expand([
         ("google"),
         ("abc"),
