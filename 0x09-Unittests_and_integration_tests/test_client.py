@@ -85,14 +85,14 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         """
         cls.get_patcher.stop()
 
-    def test_public_repository_without_license(self):
-        """[test_public_repository_without_license]
+    def test_public_repos(self):
+        """[test_public_repos]
         """
         class_test = GithubOrgClient("holbertonschool")
         assert True
 
-    def test_public_repository_with_license(self):
-        """[test_public_repository_with_license]
+    def test_public_repos_with_license(self):
+        """[test_public_repos_with_license]
         """
         class_test = GithubOrgClient("holbertonschool")
         assert True
