@@ -20,7 +20,6 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         self.assertEqual(access_nested_map(nested_map, path), answer)
 
-
     @parameterized.expand([
         ({}, ("a",)),
         ({"a": 1}, ("a", "b")),
@@ -31,6 +30,7 @@ class TestAccessNestedMap(unittest.TestCase):
         with self.assertRaises(KeyError) as err:
             access_nested_map(nested_map, path)
         self.assertEqual(err.exception.args[0], path[-1])
+
 
 class TestGetJson(unittest.TestCase):
     """[TestGetJson]
@@ -46,6 +46,7 @@ class TestGetJson(unittest.TestCase):
         mock_get.return_value = test_payload
         response = get_json(test_url)
         self.assertEqual(response, test_payload)
+
 
 class TestMemoize(unittest.TestCase):
     """[TestMemoize]
