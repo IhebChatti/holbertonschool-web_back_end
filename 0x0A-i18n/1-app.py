@@ -18,11 +18,12 @@ class Config(object):
 
 app.config.from_object(Config)
 
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def welcome_holberton() -> str:
     """[welcome holberton endpoint]
     """
-    return render_template('0-index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':
