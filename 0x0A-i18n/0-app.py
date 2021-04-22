@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 
 @app.rout('/', methods=['GET'], strict_slashes=False)
-def welcome_holberton():
+def welcome_holberton() -> str:
     """[welcome holberton endpoint]
     """
     return render_template('0-index.html')
