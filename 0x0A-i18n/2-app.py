@@ -30,7 +30,7 @@ def welcome_holberton() -> str:
 def get_locale() -> str:
     """[get_locale]
     """
-    return request.accept_languages.best_match(app.config.__getattribute__('LANGUAGES'))
+    return request.accept_languages.best_match(app.config.get(LANGUAGES))
 
 
 if __name__ == '__main__':
