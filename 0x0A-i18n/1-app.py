@@ -16,6 +16,8 @@ class Config(object):
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
+app.config.from_object(Config)
+
 @app.route('/', methods=['GET'], strict_slashes=False)
 def welcome_holberton() -> str:
     """[welcome holberton endpoint]
