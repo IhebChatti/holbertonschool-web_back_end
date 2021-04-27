@@ -28,6 +28,16 @@ def count_calls(method: Callable) -> Callable:
     return wrapper
 
 
+def replay(method: callable):
+    """[replay]
+    """
+    key = method.__qualname__
+    inputs = "".join([key, ":inputs"])
+    outputs = "".join([key, ":outputs"])
+    inputs_list = method.self._redis.lrange(inputs, 0, -1)
+    outputs_list = mehtod.self._redis.lrange(outputs, 0, -1)
+
+
 def call_history(method: Callable) -> Callable:
     """[call_history]
 
