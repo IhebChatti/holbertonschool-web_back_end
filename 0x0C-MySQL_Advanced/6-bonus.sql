@@ -4,7 +4,7 @@ DROP PROCEDURE IF EXISTS AddBonus;delimiter / / CREATE PROCEDURE AddBonus (
   IN user_id INT,
   IN project_name VARCHAR(255),
   IN score INT
-) BEGIN BEGIN DECLARE project_id INT;IF (
+) BEGIN DECLARE project_id INT;IF (
   SELECT
     COUNT(*)
   FROM
