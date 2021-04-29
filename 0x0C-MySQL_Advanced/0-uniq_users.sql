@@ -1,10 +1,7 @@
---script that creates a table users following these requirements:
---these attributes: id, email, name
---If the table already exists, your script should not fail
---The script can be executed on any database
+--script that creates a table users 
 
 CREATE TABLE IF NOT EXISTS users (
-	id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-	email VARCHAR(255) NOT NULL UNIQUE,
-	name VARCHAR(255)
-);
+       id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+       email varchar(255) NOT NULL UNIQUE,
+       name varchar(255)
+)
