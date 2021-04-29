@@ -1,4 +1,4 @@
--- Creates users table on any db
+-- script that creates a table users
 
 CREATE TABLE IF NOT EXISTS users (
        id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
