@@ -7,6 +7,6 @@ AFTER
 UPDATE
   items
 SET
-  quantity = quantity - New.quantity
+  quantity = quantity - New.number
 WHERE
   name = New.item_name;
