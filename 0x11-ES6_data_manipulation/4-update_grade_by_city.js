@@ -1,4 +1,3 @@
-
 export default function updateStudentGradeByCity(students, city, newGrades) {
   if (Object.getPrototypeOf(students, newGrades) !== Array.prototype) {
     return [];
